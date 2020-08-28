@@ -1,1 +1,11 @@
-note
+marlin_banzi
+lunch aosp_marlin-userdebug
+make -j8
+adb push E://marlin//adbkey.pub /data/misc/adb/adb_keys
+scrcpy.exe -s 192.168.11.80 -m 1024
+fastboot erase system
+fastboot flashall -w
+fastboot boot twrp-3.3.0-0-marlin.img
+jar cvf vending11.1.15.jar com/
+tar cf - cm130 | pigz -9 -p 32 > cm130.tar.gz
+cat xxxx.tar.bz2.* | tar -xzv
